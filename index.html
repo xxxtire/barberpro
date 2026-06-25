@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BarberPro Studio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0a0a0a;
+    color:white;
+}
+
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 25px;
+    background:#000;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    color:#d4af37;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:#aaa;
+    margin-left:15px;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:#d4af37;
+}
+
+
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
+    url('https://images.unsplash.com/photo-1517832606299-7ae9b720a186') center/cover;
+}
+
+.hero h1{
+    font-size:52px;
+    margin:0;
+}
+
+.hero p{
+    color:#bbb;
+}
+
+.btn{
+    margin-top:20px;
+    padding:12px 26px;
+    background:#d4af37;
+    color:black;
+    font-weight:bold;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.title{
+    font-size:28px;
+    color:#d4af37;
+    margin-bottom:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:#161616;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #222;
+}
+
+.card:hover{
+    border-color:#d4af37;
+}
+
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:10px;
+    filter:brightness(0.9);
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+    filter:brightness(1);
+}
+
+
+form{
+    max-width:500px;
+    margin:auto;
+    background:#161616;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #222;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    background:#0a0a0a;
+    border:1px solid #333;
+    color:white;
+    border-radius:6px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#d4af37;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#000;
+    color:#555;
+    font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">BARBERPRO</div>
+<div>
+<a href="#services">Services</a>
+<a href="#gallery">Work</a>
+<a href="#booking">Booking</a>
+</div>
+</nav>
+
+
+<div class="hero">
+<h1>Sharp Cut. Sharp Life.</h1>
+<p>Premium Barber Experience in Sibu</p>
+<a class="btn" href="#booking">Book Appointment</a>
+</div>
+
+
+<section id="services">
+<div class="title">Our Services</div>
+
+<div class="grid">
+<div class="card">💇 Haircut - RM15</div>
+<div class="card">✂️ Fade Cut - RM25</div>
+<div class="card">🧔 Beard Trim - RM20</div>
+<div class="card">💆 Scalp Care - RM30</div>
+</div>
+</section>
+
+
+<section id="gallery">
+<div class="title">Our Work</div>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033">
+<img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937">
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+</div>
+</section>
+
+
+<section id="booking">
+<div class="title">Book Now</div>
+
+<form onsubmit="sendWA(); return false;">
+<input id="name" placeholder="Your Name" required>
+<input id="time" placeholder="Preferred Time (e.g. 4PM)" required>
+
+<select id="service">
+<option>Haircut</option>
+<option>Fade Cut</option>
+<option>Beard Trim</option>
+<option>Scalp Care</option>
+</select>
+
+<button type="submit">Send to WhatsApp</button>
+</form>
+</section>
+
+<footer>
+© 2026 BarberPro Studio | All Rights Reserved
+</footer>
+
+<script>
+function sendWA(){
+    let name=document.getElementById("name").value;
+    let time=document.getElementById("time").value;
+    let service=document.getElementById("service").value;
+
+    let msg=`Hello Barber,%0AI want to book:%0AName: ${name}%0AService: ${service}%0ATime: ${time}`;
+
+    window.open("https://wa.me/60123456789?text="+msg,"_blank");
+}
+</script>
+
+</body>
+</html>
